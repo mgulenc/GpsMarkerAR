@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d58c52ff9f122a49a289c83a1611436, type: 3}
+  m_Name: PrefabDb
+  m_EditorClassIdentifier: 
+  Entries:
+  - MeshId: Logo
+    pvPrefab: {fileID: 6258217249374000617, guid: 3efbaf285e5964f0f9f4dfe7fdd405ba, type: 3}
+    windradPrefab: {fileID: 556061441693925367, guid: 65493ba44bfc54990a6ae4dbe3bce1e7, type: 3}
+    biomassePrefab: {fileID: 4717874358630924062, guid: 73059982ca1a746899fd342831dc5705, type: 3}
