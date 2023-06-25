@@ -50,9 +50,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b48979befad04011a4a87bd00fd877d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 50
-  amplitude: 0
-  freuquency: 0.5
   citizenLocation: {fileID: 0}
   PointPosition:
     x: 0

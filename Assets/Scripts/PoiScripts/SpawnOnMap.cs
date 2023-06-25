@@ -11,13 +11,6 @@
 
     public class SpawnOnMap : MonoBehaviour
     {
-        public static SpawnOnMap Instance;
-
-        public void Awake()
-        {
-            Instance = this;
-        }
-
         [SerializeField]
         AbstractMap _map;
 
@@ -67,6 +60,8 @@
                 GameObject instance = null;
                 var locationString = locationStrings[i];
                 locations[i] = Conversions.StringToLatLon(locationString);
+
+                // überprüft den ausgewählten Energietyp und instanziert das entsprechende Prefab
                 if (DownloadManager.Instance.SelectedEnergyType == EnergyType.PV)
                 {
                     instance = Instantiate(_pvPrefab);
@@ -82,23 +77,22 @@
                     instance = Instantiate(_bioPrefab);
                     Debug.Log("Objekt erstellt.");
                 }
-                
+
+                // setzt die Eigenschaften des an der Instanz angehängten PoiPointer-Komponenten
                 instance.GetComponent<PoiPointer>().PointPosition = locations[i];
-                instance.GetComponent<PoiPointer>().EventID = i + 1;
-                /*
-                instance.GetComponent<EventPointer>().insLeistung = featureCollection.features[i].properties.inst_leistung;
-                instance.GetComponent<EventPointer>().plz = featureCollection.features[i].properties.plz;
-                instance.GetComponent<EventPointer>().adresse = featureCollection.features[i].properties.adresse;
-                instance.GetComponent<EventPointer>().strasse = featureCollection.features[i].properties.strasse_flur_lang;
-                */
+                instance.GetComponent<PoiPointer>().poiID = i + 1;
                 instance.GetComponent<PoiPointer>().feature = featureCollection.features[i];
-                
+
+                // konvertiert die geografischen Koordinaten in eine Weltposition
                 Vector3 vector = _map.GeoToWorldPosition(locations[i], true);
 
+                // setzt die Position und Skalierung der Instanz
                 instance.transform.localPosition = _map.GeoToWorldPosition(locations[i], true);
                 instance.transform.localPosition = vector;
                 vector.z = 0;
                 instance.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
+
+                // fügt die Instanz der spawnedObjects-Liste hinzu
                 spawnedObjects.Add(instance);
             }
         }
