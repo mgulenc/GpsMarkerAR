@@ -103,7 +103,6 @@ public class DownloadManager : MonoBehaviour
     {
         if (isWindrad.isOn)
         {
-            // this.SelectedEnergzTzpe = EnergzTzpe.Wind;
             ChangeStatusToDownloading();
             url = "https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wind_standort?service=wfs&version=2.0.0&request=GetFeature&typeNames=fis:s_wind_standort&outputFormat=application/json";
             StartCoroutine(GetOnlineEnergyData(url, EnergyType.Wind));
@@ -131,6 +130,7 @@ public class DownloadManager : MonoBehaviour
             LoadStatusText.text = "Bitte wähle einer der dargestellten Optionen aus..";
             LoadStatusText.color = Color.white;
         }
+
     }
 
     IEnumerator GetOnlineEnergyData(string url, EnergyType energyType)
@@ -140,7 +140,6 @@ public class DownloadManager : MonoBehaviour
 
         if (request.result == UnityWebRequest.Result.Success)
         {
-            // Request successful
             Debug.Log("GET request for EE-Quellen successful!");
             Debug.Log("Response from Berlin-WFS: " + request.downloadHandler.text);
             jsonFromWeb = request.downloadHandler.text;
@@ -149,7 +148,6 @@ public class DownloadManager : MonoBehaviour
         }
         else
         {
-            // Request failed
             ChangeStatusNoInternet();
             Debug.LogError("GET request failed: " + request.error);
         }
@@ -162,14 +160,12 @@ public class DownloadManager : MonoBehaviour
 
         if (request.result == UnityWebRequest.Result.Success)
         {
-            // Request successful
             Debug.Log("GET request for the converting of coordinates successful!");
             Debug.Log("Response from Coordinates : " + request.downloadHandler.text);
             jsonWgsFormat = request.downloadHandler.text;
         }
         else
         {
-            // Request failed
             Debug.LogError("GET request failed: " + request.error);
         }
     }
@@ -229,7 +225,7 @@ public class DownloadManager : MonoBehaviour
 
     private void ChangeStatusToDownloadComplete(EnergyType energyType)
     {
-        FeatureCollection featureCollection = JsonConvert.DeserializeObject<FeatureCollection>(jsonFromWeb);
+        featureCollection = JsonConvert.DeserializeObject<FeatureCollection>(jsonFromWeb);
 
         LoadStatusText.text = featureCollection.totalFeatures + " " + energyType + " - Energieanlagen in Ihrer Nähe";
 

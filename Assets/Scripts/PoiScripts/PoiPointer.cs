@@ -13,26 +13,26 @@ public class PoiPointer : MonoBehaviour
         Instance = this;
     }
 
-    [SerializeField] private float rotationSpeed = 50f;
-    [SerializeField] private float amplitude = 0f;
-    [SerializeField] private float freuquency = 0.50f;
+//    [SerializeField] private float rotationSpeed = 50f;
+//    [SerializeField] private float amplitude = 0f;
+//    [SerializeField] private float freuquency = 0.50f;
 
     public LocationStatus citizenLocation;
     public Vector2d PointPosition;
-    public int EventID;
+    public int poiID;
     public Feature feature;
 
     // Update is called once per frame
     void Update()
     {
-        FloatAndRotatePointer();
+        PointerPosition();
     }
 
-    void FloatAndRotatePointer()
+    private void PointerPosition()
     {
         // transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
-        transform.position = new Vector3(transform.position.x, (Mathf.Sin(Time.fixedTime * Mathf.PI * freuquency) * amplitude) + 2, transform.position.z);
-       
+        // transform.position = new Vector3(transform.position.x, (Mathf.Sin(Time.fixedTime * Mathf.PI * freuquency) * amplitude) + 2, transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
     }
 
     private void OnMouseDown()
@@ -47,7 +47,7 @@ public class PoiPointer : MonoBehaviour
         string energyType = DownloadManager.Instance.SelectedEnergyType == EnergyType.PV ? "zur PV-Anlage" : DownloadManager.Instance.SelectedEnergyType == EnergyType.Wind ? "zum Windrad" : "zur Biomasse";
         string distanceUnit = distance < 1000 ? "m" : "km";
         string formattedDistance = Math.Round(distance / (distanceUnit == "km" ? 1000 : 1), 2).ToString();
-        string powerUnit = DownloadManager.Instance.SelectedEnergyType == EnergyType.PV ? "kWp" : "kW"; // Hinzugefügte Bedingung für den Power-Text
+        string powerUnit = DownloadManager.Instance.SelectedEnergyType == EnergyType.PV ? "kWp" : "kW";
 
         string eventText = $"Ihr aktueller Standort: {currentCitizenLocation}\n\n" +
             $"Ihre Entfernung {energyType} ca. {formattedDistance} {distanceUnit}\n" +
@@ -56,7 +56,6 @@ public class PoiPointer : MonoBehaviour
         if (DownloadManager.Instance.SelectedEnergyType == EnergyType.PV || DownloadManager.Instance.SelectedEnergyType == EnergyType.Bio)
         {
             feature.properties.adresse = feature.properties.strasse_flur_lang;
-           // eventText += $"PLZ: {feature.properties.plz}\n";
         }
 
         eventText += $"Adresse: {feature.properties.adresse} {feature.properties.plz}";

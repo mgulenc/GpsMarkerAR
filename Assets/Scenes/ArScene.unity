@@ -471,8 +471,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1113,12 +1113,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3433726173099967621, guid: 7b03af5e5d85c48a784641d33ac14d20, type: 3}
       propertyPath: m_text
-      value: "Wenn Sie diese Nachricht lesen, haben Sie wahrscheinlich das AR-Objekt
-        ber\xFChrt."
+      value: "Energieart : Biomasse\nInstalierte Leistung: 2300 kW\nAdresse: Musterstra\xDFe
+        244 12048 Berlin"
       objectReference: {fileID: 0}
     - target: {fileID: 3433726173099967621, guid: 7b03af5e5d85c48a784641d33ac14d20, type: 3}
       propertyPath: m_fontSize
-      value: 50
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3433726173099967621, guid: 7b03af5e5d85c48a784641d33ac14d20, type: 3}
       propertyPath: m_margin.w
@@ -1138,7 +1138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3433726173099967621, guid: 7b03af5e5d85c48a784641d33ac14d20, type: 3}
       propertyPath: m_fontSizeBase
-      value: 50
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3433726173099967621, guid: 7b03af5e5d85c48a784641d33ac14d20, type: 3}
       propertyPath: m_isRightToLeft
@@ -1415,8 +1415,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1725,6 +1725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202e505348c1747eb9da4a8a2b08b5c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  locationStrings: []
   PrefabDatabase: {fileID: 11400000, guid: 5938ca4a639db8b448becdaee8d18567, type: 2}
   XmlDataFile: {fileID: 4900000, guid: 3dfb10925223a48b89298b2c31ec1016, type: 3}
   DebugMode: 1
@@ -2598,8 +2599,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
